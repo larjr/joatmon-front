@@ -2,7 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
 
+## Prototype
+
+https://marvelapp.com/prototype/18e9be8j
+
+![joatmon-front](https://user-images.githubusercontent.com/22268900/204411398-14a8984a-c224-464b-a94f-5150d3fc0f0b.gif)
+
 ## Development server
+
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
