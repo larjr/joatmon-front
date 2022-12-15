@@ -1,1 +1,16 @@
 <p>string works!</p>
+
+<input>
+
+<button (click)="onClick()">Enviar</button>
+<hr>
+<h1>Resultados</h1>
+<p>Texto enviado: {{stringCountResponse.stringCountRequest.text}}</p>
+<hr>
+<p>Caracteres: {{stringCountResponse.caracters}}</p>
+<p>Caracteres sem espaco: {{stringCountResponse.caractersWithoutSpaces}}</p>
+<p>Numeros: {{stringCountResponse.numbers}}</p>
+<p>Espacos: {{stringCountResponse.spaces}}</p>
+<p>Vogais: {{stringCountResponse.vowels}}</p>
+<p>Palavras: {{stringCountResponse.words}}</p>
+<p>Linhas: {{stringCountResponse.lines}}</p>
