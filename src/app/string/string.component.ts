@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StringCountResponse } from '../model/string-count-response.interface';
+import { StringService } from './string.service';
 
 @Component({
   selector: 'app-string',
@@ -20,7 +22,7 @@ export class StringComponent implements OnInit {
     lines: 0
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private stringService: StringService) {
   }
 
   ngOnInit(): void {
@@ -30,6 +32,17 @@ export class StringComponent implements OnInit {
   }
 
   handleSubmit() {
-    console.log(JSON.stringify(this.form.getRawValue()));
+    this.stringService.post(this.form.getRawValue()).subscribe(data => this.syncResponseWithStringCountResponse(data), error => console.error("error"), () => console.log('request completo'));
+  }
+
+  syncResponseWithStringCountResponse(data: any){
+    this.stringCountResponse.stringCountRequest = data.stringCountRequest;
+    this.stringCountResponse.caracters = data.caracters;
+    this.stringCountResponse.caractersWithoutSpaces = data.caractersWithoutSpaces;
+    this.stringCountResponse.lines = data.lines;
+    this.stringCountResponse.numbers = data.numbers;
+    this.stringCountResponse.spaces = data.spaces;
+    this.stringCountResponse.vowels = data.vowels;
+    this.stringCountResponse.words = data.words;
   }
 }
