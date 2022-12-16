@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { StringCountResponse } from '../model/string-count-response.interface';
 
 @Component({
@@ -7,9 +8,9 @@ import { StringCountResponse } from '../model/string-count-response.interface';
   styleUrls: ['./string.component.scss']
 })
 export class StringComponent implements OnInit {
-
+  form!: FormGroup;
   stringCountResponse: StringCountResponse = {
-    stringCountRequest: { text: "Mock de Text"},
+    stringCountRequest: { text: "Mock de Text" },
     caracters: 0,
     caractersWithoutSpaces: 0,
     words: 0,
@@ -19,13 +20,16 @@ export class StringComponent implements OnInit {
     lines: 0
   };
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      text: ['', Validators.required]
+    })
   }
 
-  onClick(){
+  handleSubmit() {
+    console.log(JSON.stringify(this.form.getRawValue()));
   }
-
 }

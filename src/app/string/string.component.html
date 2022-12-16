@@ -1,8 +1,10 @@
 <p>string works!</p>
 
-<input>
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <label id="textLabel" for="text">Insira seu texto aqui<input id="text" type="text" placeholder="Insira seu texto aqui" formControlName="text"></label>
 
-<button (click)="onClick()">Enviar</button>
+    <button type="submit" [disabled]="form.invalid">Enviar</button>
+</form>
 <hr>
 <h1>Resultados</h1>
 <p>Texto enviado: {{stringCountResponse.stringCountRequest.text}}</p>
