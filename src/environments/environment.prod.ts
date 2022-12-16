@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  joatmonUrl: "https://joatmon.herokuapp.com"
 };
